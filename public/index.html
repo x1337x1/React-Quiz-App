@@ -28,7 +28,7 @@
           function widgetTimer() {
           const tenantId = localStorage.getItem("tenantId")
           const botId = localStorage.getItem("botId")
-const host = window.location.hostname
+          const host = window.location.hostname
 
           if((tenantId && tenantId != "undefined") && (botId && botId != "undefined") && (host && host != "undefined")){
               clearInterval(propsInterval);
