@@ -16,31 +16,31 @@
     
     
     <div id="root"></div>
-    
+    <script async src="https://stage-widget.intelswift.com/script.js?tenantId=a5b4ba3b-5b9e-43b9-8e26-7440137d832a&botId=66c34ba5f32ae3ba8b125d80&end=true"></script>
+    <script>
+        window.onload = (event) => {
+            const propsInterval = setInterval(widgetTimer, 1000);
+  
+            function widgetTimer() {
+            const tenantId = localStorage.getItem("tenantId")
+            const botId = localStorage.getItem("botId")
+            const host = window.location.hostname
+  
+            if((tenantId && tenantId != "undefined") && (botId && botId != "undefined") && (host && host != "undefined")){
+                clearInterval(propsInterval);
+                document.getElementById("iframeWidgetContainer").contentWindow.postMessage( 
+                {
+                    tenantId: tenantId,
+                    botId: botId,
+                    host: host
+                },"*")
+            }
+            }
+        };
+    </script>
   </body>
 
 
-  <script async src="https://stage-widget.intelswift.com/script.js?tenantId=a5b4ba3b-5b9e-43b9-8e26-7440137d832a&botId=66c34ba5f32ae3ba8b125d80&end=true"></script>
-  <script>
-      window.onload = (event) => {
-          const propsInterval = setInterval(widgetTimer, 1000);
 
-          function widgetTimer() {
-          const tenantId = localStorage.getItem("tenantId")
-          const botId = localStorage.getItem("botId")
-          const host = window.location.hostname
-
-          if((tenantId && tenantId != "undefined") && (botId && botId != "undefined") && (host && host != "undefined")){
-              clearInterval(propsInterval);
-              document.getElementById("iframeWidgetContainer").contentWindow.postMessage( 
-              {
-                  tenantId: tenantId,
-                  botId: botId,
-                  host: host
-              },"*")
-          }
-          }
-      };
-  </script>
   
 </html>
