@@ -26,7 +26,7 @@ export default function Questions(){
               }
           }))
         })}console.log(questionsAndAnswers[0].shuffledAnswers)
-      },[])
+      },[questions,questionsAndAnswers ])
 
     
    function updateselected( currentQuestion, answer){
